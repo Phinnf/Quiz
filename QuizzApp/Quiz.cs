@@ -3,10 +3,12 @@
     internal class Quiz
     {
         private Question[] _questions;
+        private int _score;
 
         public Quiz(Question[] questions)
         {
             _questions = questions;
+            _score = 0;
         }
         public void StartQuiz()
         {
@@ -20,12 +22,36 @@
                 if (question.IsCorrectAnswer(userChoice))
                 {
                     Console.WriteLine("Correct!");
+                    _score++;
                 }
                 else
                 {
                     Console.WriteLine($"Wrong! The correct answer was: {question.Answers[question.CorrectAnswerIndex]}");
                 }
             }
+            DisplayResult();
+        }
+        private void DisplayResult()
+        {
+
+            Console.WriteLine($"Quiz finished. Your score is: {_score} out of {_questions.Length}");
+
+            double percentage = (double)_score / _questions.Length;
+            if (percentage >= 0.8)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Excelent Work!");
+            } else if (percentage >= 0.5)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Good Effort");
+            }
+            else
+            {
+                Console.ForegroundColor= ConsoleColor.Red;
+                Console.WriteLine("Keep practicing");
+            }
+            Console.ResetColor();
         }
         private void DisplayQuestion(Question question)
         {

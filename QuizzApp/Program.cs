@@ -13,6 +13,10 @@
                 new Question("What is 1 + 1",
                 ["1", "2", "5", "4" ],
                 1
+                ),
+                new Question ("Most profit crop in RimWorld",
+                ["Cotton", "Devilstrand", "Other", "Corn"],
+                3
                 )
             };
             Quiz myQuiz = new Quiz(questions);
