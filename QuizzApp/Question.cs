@@ -11,7 +11,7 @@ namespace QuizzApp
         public string QuestionText { get; set; }
         public string[] Answers { get; set; }
 
-        public int CorrectAnswerIndex { get; set; }
+        public int CorrectAnswerIndex { get; set;}
 
         public Question(string questionText, string[] answers, int correctAnswerIndex)
         {
@@ -22,14 +22,6 @@ namespace QuizzApp
         public bool IsCorrectAnswer(int choice)
         {
             return CorrectAnswerIndex == choice;
-        }
-        public void DisplayQuestion(Question question)
-        {
-            Console.WriteLine(question.QuestionText);
-            for (int i = 0; i < question.Answers.Length; i++)
-            {
-
-            }
-        }
+        } 
     }
 }
